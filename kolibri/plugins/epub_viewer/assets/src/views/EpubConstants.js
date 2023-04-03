@@ -37,6 +37,7 @@ export const THEMES = {
     hoverColor: themePalette().grey.v_200,
     textColor: themePalette().blue.v_800,
   },
+  // Add more themes here
 };
 
 export const darkThemeNames = ['BLACK', 'GREY', 'YELLOW'];
