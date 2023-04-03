@@ -58,7 +58,9 @@
               style="top: 0; width: 24px; height: 24px;"
             />
           </KButton>
-
+          <KFixedGridItem>
+            <input type="color" v-model="colorValue">
+          </KFixedGridItem>
         </KFixedGridItem>
       </KFixedGrid>
     </div>
@@ -76,6 +78,11 @@
     name: 'SettingsSideBar',
     components: {
       SideBar,
+    },
+    data() {
+      return {
+        colorValue: '#000000',
+      };
     },
     props: {
       theme: {
@@ -107,6 +114,18 @@
         };
       },
     },
+    watch: {
+      colorValue: function(value){
+        let colorObject = {
+          name: 'CUSTOM',
+          backgroundColor: value,
+          textColor: '#000000',
+          hoverColor: '#000000',
+         };
+         this.$emit('setTheme', colorObject);
+        }
+    },
+
     methods: {
       generateThemeAriaLabel(themeName) {
         switch (themeName) {
